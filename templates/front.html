@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Keeper</title>
+    <link rel = "stylesheet" href="/static/css/front.css">
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Recipe Keeper</h1>
+    </div>
+    <div class="notebook">
+    <form action="/add" method="POST" onsubmit="gatherIngredients()">
+    <input name="title" placeholder="Recipe Title" required>
+
+    <div id="ingredient-container">
+        <input name="ingredient" placeholder="Ingredient 1" required>
+    </div>
+    <button type="button" class="add-btn" onclick="addIngredient()">+ Add Ingredient</button>
+
+    <textarea name="steps" id="steps" placeholder="Cooking Steps" rows="3" required></textarea>
+
+    <input name="cuisine" placeholder="Cuisine (e.g., Indian)" required>
+    <input type="hidden" name="ingredients" id="ingredients-final">
+    <button type="submit">Add Recipe</button>
+    </form>
+    </div>
+
+
+    <h2>Search by Ingredient</h2>
+    <input id="searchBox" placeholder="e.g. tomato">
+    <button onclick="searchRecipes()">Search</button>
+    <ul id="results"></ul>
+    <script src="/static/js/front.js"></script>
+</body>
+</html>
