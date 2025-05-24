@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results for "{{ query }}"</title>
+     <link rel = "stylesheet" href="/static/css/front.css">
+</head>
+<body>
+    <div class="top-bar">
+    <h1>Searched Recipe : {{query}}</h1>
+    <a href="/">Back to Home</a>
+    </div>
+
+    <div class="notebook">
+    <h2>Results for "{{ query }}"</h2>
+    <ul>
+        {% for recipe in recipes %}
+            <h2>{{ recipe.title }}</h2>
+            <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+            <p><strong>Ingredients:</strong> {{ recipe.ingredients | join(', ') }}</p>
+            <p><strong>Steps:</strong></p>
+            <ul>
+                {% for step in recipe.steps.split('\n') if step.strip() %}
+                <li>{{ step.strip() }}.</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <li>No recipes found.</li>
+        {% endfor %}
+    </ul>
+    </div>
+
+
+    <script src="/static/js/front.js"></script>
+</body>
+</html>
