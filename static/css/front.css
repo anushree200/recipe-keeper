@@ -4,20 +4,69 @@ body {
     background-color: #f5ac3f;
 }
 .top-bar {
-    text-align: center;
-    background-color: #d63e12; 
+    position: relative;
+    background-color: #d63e12;
     color: #f5ac3f;
     padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
+    text-align: center;
 }
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.top-bar-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    text-align: right;
+}
+
+.top-bar-right h2 {
+    margin: 0 0 5px 0;
+    font-weight: normal;
+    font-size: 1em;
+    color: #f5ac3f;
+}
+
+#searchBox {
+    display: flex;
+    padding: 4px 6px;
+    font-size: 0.8em;
+    width: 140px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f5ac3f;
+    margin-right: 10px;
+}
+#searchBox:focus {
+    outline:none;
+}
+.top-bar-right-button {
+    background-color: #f5ac3f;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #d63e12;
+    font-weight: bold;
+    font-size: 0.8em;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #e59a29;
+}
+
+
 form input, textarea {
     display: block;
     margin: 10px 0;
     width: 300px;
 }
+
+
 button {
     padding: 10px 20px;
     background-color: #d63e12;

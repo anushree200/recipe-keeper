@@ -26,11 +26,12 @@ def add_recipe():
     })
     return redirect('/')
 
-@app.route('/search')
+@app.route("/search")
 def search():
-    ingredient = request.args.get('ingredient')
-    results = list(collection.find({"ingredients": {"$regex": ingredient, "$options": "i"}}))
-    return jsonify([{"title": r["title"], "cuisine": r["cuisine"]} for r in results])
+    query = request.args.get("query", "").lower()
+    matches = list(collection.find({"title": {"$regex": query, "$options": "i"}}))
+    return render_template("recipe.html", recipes=matches, query=query)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

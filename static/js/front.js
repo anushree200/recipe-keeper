@@ -24,14 +24,8 @@ steps.addEventListener('input', function () {
 
 
 async function searchRecipes() {
-    const ing = document.getElementById("searchBox").value;
-    const res = await fetch(`/search?ingredient=${ing}`);
-    const data = await res.json();
-    const results = document.getElementById("results");
-    results.innerHTML = "";
-    data.forEach(r => {
-        const li = document.createElement("li");
-        li.textContent = `${r.title} (${r.cuisine})`;
-        results.appendChild(li);
-    });
+    const query = document.getElementById("searchBox").value.trim();
+    if (query !== "") {
+        window.location.href = `/search?query=${encodeURIComponent(query)}`;
+    }
 }
