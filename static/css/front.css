@@ -127,3 +127,12 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
 }
+.allrecepes{
+    justify-content: center;
+    text-align: center;
+}
+.allrecepes button {
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+}

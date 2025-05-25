@@ -32,6 +32,10 @@ def search():
     matches = list(collection.find({"title": {"$regex": query, "$options": "i"}}))
     return render_template("recipe.html", recipes=matches, query=query)
 
+@app.route("/seeall")
+def seeall():
+    recipes = list(collection.find({}, {"title": 1, "cuisine": 1}))
+    return render_template("seeall.html", recipes=recipes)
 
 if __name__ == '__main__':
     app.run(debug=True)
